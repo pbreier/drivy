@@ -1,7 +1,6 @@
 'use strict';
 
-//list of cars
-//useful for ALL exercises
+
 var cars = [{
   'id': 'p306',
   'vehicule': 'peugeot 306',
@@ -24,8 +23,6 @@ var cars = [{
 //The `options` is useful from exercice 4
 var rentals = [{
 
-
-
   'id': '1-pb-92',
   'driver': {
     'firstName': 'Paul',
@@ -38,7 +35,7 @@ var rentals = [{
   'options': {
     'deductibleReduction': false
   },
-  'price': (returnDate-pickupDate)+distance,
+  'price': 0,
   'commission': {
     'insurance': 0,
     'assistance': 0,
@@ -168,6 +165,18 @@ var rentalModifications = [{
   'pickupDate': '2015-12-05'
 }];
 
+function generatePrice(){
+	
+	for(var i = 0 ; i< rentals.length;i++ ){
+		var distance = parseInt(rentals[i].distance);
+		var dEmprunt = Date(rentals[i].pickupDate) ; 
+		var dRetour = Date(rentals[i].returnDate) ; 
+		rentals[i].price = " " + distance + dRetour - dEmprunt;
+	}
+	
+}
+
+console.log(rentals.price);
 console.log(cars);
 console.log(rentals);
 console.log(actors);
