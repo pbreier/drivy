@@ -23,6 +23,7 @@ var cars = [{
 //The `commission` is updated from exercice 3
 //The `options` is useful from exercice 4
 var rentals = [{
+    Console.log(rentals);
   'id': '1-pb-92',
   'driver': {
     'firstName': 'Paul',
@@ -35,7 +36,7 @@ var rentals = [{
   'options': {
     'deductibleReduction': false
   },
-  'price': 0,
+  'price': (returnDate-pickupDate)+distance,
   'commission': {
     'insurance': 0,
     'assistance': 0,
