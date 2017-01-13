@@ -182,3 +182,4 @@ build/
 dist/
 
 exports
+/HTML5Application/nbproject/private/
