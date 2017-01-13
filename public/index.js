@@ -166,16 +166,31 @@ var rentalModifications = [{
 }];
 
 function generatePrice(){
-	
+	var prix ;
 	for(var i = 0 ; i< rentals.length;i++ ){
-		var distance = parseInt(rentals[i].distance);
+		var distance = rentals[i].distance;
 		var dEmprunt = Date(rentals[i].pickupDate) ; 
 		var dRetour = Date(rentals[i].returnDate) ; 
-		rentals[i].price = " " + distance + dRetour - dEmprunt;
+		prix = dRetour - dEmprunt;
+		if (prix  == 0){
+			prix = 1 ; 
+		}
+		else{
+			prix = prix / (24*3600*1000) ; 
+			
+		}
+		for (var j= 0;j<cars.length;j++){
+			if (rentals[i].carId == cars[j].id){
+				prix = prix*cars[j].pricePerDay + cars[j].pricePerKm*rentals[i].distance;
+				rentals[i].price = prix;
+			}
+			
+		}
+		
 	}
 	
 }
-
+generatePrice();
 console.log(rentals.price);
 console.log(cars);
 console.log(rentals);
